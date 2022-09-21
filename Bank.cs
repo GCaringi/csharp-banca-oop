@@ -34,7 +34,7 @@ public class Bank
         return findUser;
     }
     
-    private  User FindUserByTaxCode(string taxCode)
+    public  User FindUserByTaxCode(string taxCode)
     {
         User? findUser = _clients.Find(user => user.TaxCode == taxCode);
         if (findUser == null)
