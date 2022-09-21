@@ -17,6 +17,15 @@ public class User
         Loans = new List<Loan>();
     }
     
+    public User(string name, string lastName, string taxCode)
+    {
+        FirstName = name;
+        LastName = lastName;
+        TaxCode = taxCode;
+        Salary = new Random().Next(800, 2500);
+        Loans = new List<Loan>();
+    }
+    
     public void SetTaxCode(string taxCode)
     {
         TaxCode = taxCode;

@@ -45,9 +45,16 @@ public class Bank
         return fidnedUser;
     }
     
-    public static void ModifyUser(User user, int newSalary)
+    public void ModifyUser(User user, int newSalary)
     {
-        user.Salary = newSalary;
+        if (_clients.Contains(user))
+        {
+            user.Salary = newSalary;
+        }
+        else
+        {
+            throw new Exception("User not found");
+        }
     }
     
     public void AddLoan(Loan loan, User user)
@@ -56,4 +63,58 @@ public class Bank
         user.Loans.Add(loan);
     }
 
+    public List<Loan> GetLoansByUser(string taxCode)
+    {
+        User? user = FindUserByTaxCode(taxCode);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        if (!user.Loans.Any())
+        {
+            throw new Exception("User has no loans");
+        }
+        
+        return user.Loans;
+    }
+    
+    public int GetTotalLoansByUser(string taxCode)
+    {
+        User? user = FindUserByTaxCode(taxCode);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+
+        if (!user.Loans.Any())
+        {
+            throw new Exception("User has no loans");
+        }
+        
+        return (int)user.Loans.Sum(loan => loan.Amount);
+    }
+
+    public int GetTotalRateMissToPay(string taxCode)
+    {
+        User? user = FindUserByTaxCode(taxCode);
+        if (user == null)
+        {
+            throw new Exception("User not found");
+        }
+        
+        if (!user.Loans.Any())
+        {
+            throw new Exception("User has no loans");
+        }
+
+        int total = 0;
+        foreach (Loan loan in user.Loans)
+        {
+            int tempRate = (int)(loan.Amount / loan.Rate);
+            total += tempRate;
+        }
+
+        return total;
+    }
 }
