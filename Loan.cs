@@ -18,4 +18,9 @@ public class Loan
       StartDate = new DateOnly(2022, 9, 21);
       EndDate = StartDate.AddMonths((int)(amount / rate) + 1);
    }
+
+   public override string ToString()
+   {
+      return $"{LoanHolder.FirstName} {LoanHolder.LastName} - {Amount} {Rate} {StartDate} {EndDate}";
+   }
 }
