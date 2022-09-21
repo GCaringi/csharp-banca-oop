@@ -15,7 +15,7 @@ public class Loan
       LoanHolder = user;
       Amount = amount;
       Rate = rate;
-      StartDate = new DateOnly(2022, 9, 21);
+      StartDate = DateOnly.FromDateTime(DateTime.Now);
       EndDate = StartDate.AddMonths((int)(amount / rate) + 1);
    }
 

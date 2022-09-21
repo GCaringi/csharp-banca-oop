@@ -25,24 +25,24 @@ public class Bank
     
     public User FindUserByName(string name)
     {
-        User? findedUser = _clients.Find(user => user.FirstName == name);
-        if (findedUser == null)
+        User? findUser = _clients.Find(user => user.FirstName == name);
+        if (findUser == null)
         {
             throw new Exception("User not found");
         }
 
-        return findedUser;
+        return findUser;
     }
     
-    public  User FindUserByTaxCode(string taxCode)
+    private  User FindUserByTaxCode(string taxCode)
     {
-        User? fidnedUser = _clients.Find(user => user.TaxCode == taxCode);
-        if (fidnedUser == null)
+        User? findUser = _clients.Find(user => user.TaxCode == taxCode);
+        if (findUser == null)
         {
             throw new Exception("User not found");
         }
         
-        return fidnedUser;
+        return findUser;
     }
     
     public void ModifyUser(User user, int newSalary)

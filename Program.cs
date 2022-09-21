@@ -2,22 +2,59 @@
 using csharp_banca_oop;
 
 Bank bank = new Bank("Intesa");
-User client_1 = new User("Gianni","Caringi");
+int prompt;
+User client1 = new User("Mario", "Rossi", "27489284");
+User client2 = new User("Luigi", "Bianchi");
 
+Prompt();
+while (prompt != -1)
+{
+    switch (prompt)
+    {
+        case 1:
+            Console.Clear();
+            Console.WriteLine("Inserisci il nome del cliente: ");
+            string? fullName = Console.ReadLine();
+            Console.WriteLine("Inserisci il cognome del cliente: ");
+            string? lastName = Console.ReadLine();
+            Console.WriteLine("Inserisci il codice fiscale del cliente: ");
+            string? taxCode = Console.ReadLine();
+            User client = new User(fullName, lastName, taxCode);
+            bank.AddUser(client);
+            Console.WriteLine("Cliente registrato con successo!");
+            Console.Clear();
+            Prompt();
+            break;
+        case 2:
+            
+            break;
+        case 3:
+           
+            break;
+        case 4:
+           
+            break;
+        case 5:
+           
+            break;
+        case -1:
+            break;
+        default:
+            Console.WriteLine("Operazione non valida");
+            break;
+    }
+        
+}
 
-Console.WriteLine($"Nome banca: {bank.Name}");
-
-Console.WriteLine(client_1.ToString());;
-
-Console.WriteLine();
-client_1.SetTaxCode("CRNGNN65D16B453P");
-
-Console.WriteLine(client_1.ToString());
-
-Console.WriteLine();
-Loan loan_1 = new Loan(client_1, 1000, 500);
-Console.WriteLine(loan_1.ToString());
-
-bank.AddLoan(loan_1, client_1);
-
-Console.WriteLine(client_1.Loans[0].ToString());
+void Prompt()
+{
+    Console.WriteLine($"Benvento presso la banca {bank.Name}");
+    Console.WriteLine("Ecco le operazioni possibili da fare:");
+    Console.WriteLine("1. Registrare un cliente");
+    Console.WriteLine("2. Creare un prestito per un cliente");
+    Console.WriteLine("3. Creare i prestiti concessi per un cliente");
+    Console.WriteLine("4. Cercare la somma totale dei prestiti richiesti da un cliente");
+    Console.WriteLine("5. Mostrare le rate residue che il cliente deve pagare");
+    Console.Write("A quale servizio vuoi accedere? (-1 Per Uscire) ");
+    prompt = Convert.ToInt32(Console.ReadLine());
+}
