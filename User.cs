@@ -19,4 +19,9 @@ public class User
     {
         TaxCode = taxCode;
     }
+
+    public override string ToString()
+    {
+        return $"{FirstName} {LastName} - {TaxCode} - {Salary} $";
+    }
 }
