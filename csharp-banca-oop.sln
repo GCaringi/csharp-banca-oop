@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-banca-oop", "csharp-banca-oop.csproj", "{22B853A7-A6D0-4283-9A46-70880371B09E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22B853A7-A6D0-4283-9A46-70880371B09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B853A7-A6D0-4283-9A46-70880371B09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B853A7-A6D0-4283-9A46-70880371B09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B853A7-A6D0-4283-9A46-70880371B09E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
