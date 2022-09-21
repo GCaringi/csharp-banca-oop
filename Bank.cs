@@ -117,4 +117,17 @@ public class Bank
 
         return total;
     }
+
+    public void Summary()
+    {
+        foreach (User user in _clients)
+        {
+            Console.Write(user.ToString() + "\t");
+            foreach (Loan loan in user.Loans)
+            {
+                Console.Write(loan.ToString() + "\t");
+            }
+            Console.WriteLine("\n");
+        }
+    }
 }

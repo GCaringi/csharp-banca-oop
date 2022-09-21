@@ -10,6 +10,17 @@ bank.AddUser(client1);
 bank.AddLoan(cliloan1, client1);
 bank.AddLoan(cliloan2, client1);
 
+User client2 = new User("Bianchi", "Visco", "27489284");
+Loan cliloan3 = new Loan(client1, 500, 50);
+Loan cliloan4 = new Loan(client1, 1000, 100);
+bank.AddUser(client2);
+bank.AddLoan(cliloan3, client2);
+bank.AddLoan(cliloan4, client2);
+
+
+bank.Summary();
+
+
 Prompt();
 while (prompt != -1)
 {
@@ -122,6 +133,15 @@ while (prompt != -1)
             int total = bank.GetTotalRateMissToPay(client1.TaxCode);
             Console.WriteLine($"Totale: {total}");
             Thread.Sleep(500);
+            Console.Clear();
+            Prompt();
+            break;
+        case 7:
+            Console.Clear();
+            Console.WriteLine("Sommario\n");
+            bank.Summary();
+            Console.Write("Inserisci un tasto per proseguire...");
+            string sleep = Console.ReadLine();
             Console.Clear();
             Prompt();
             break;
