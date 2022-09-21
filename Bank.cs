@@ -22,7 +22,7 @@ public class Bank
         
         _clients.Add(user);
     }
-
+    
     public User FindUserByName(string name)
     {
         User? findedUser = _clients.Find(user => user.FirstName == name);
@@ -45,16 +45,15 @@ public class Bank
         return fidnedUser;
     }
     
-    public void ModifyUser(User user, int newSalary)
+    public static void ModifyUser(User user, int newSalary)
     {
         user.Salary = newSalary;
     }
     
-    public void AddLoan(Loan loan)
+    public void AddLoan(Loan loan, User user)
     {
         _loans.Add(loan);
+        user.Loans.Add(loan);
     }
-    
-    
-    
+
 }

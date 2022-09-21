@@ -6,6 +6,7 @@ public class User
     public string LastName { get; }
     public string TaxCode { get; private set; }
     public int Salary { get; set; }
+    public List<Loan> Loans { get; }
 
     public User(string name, string lastName)
     {
@@ -13,6 +14,7 @@ public class User
         LastName = lastName;
         TaxCode = "";
         Salary = new Random().Next(800, 2500);
+        Loans = new List<Loan>();
     }
     
     public void SetTaxCode(string taxCode)
