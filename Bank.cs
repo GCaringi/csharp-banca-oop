@@ -2,5 +2,9 @@
 
 public class Bank
 {
+    public string Name { get; }
+    private List<User> _clients { get; }
+    private List<Loan> _loans { get; }
+    
     
 }
